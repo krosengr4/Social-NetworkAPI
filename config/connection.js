@@ -1,3 +1,5 @@
+//! This file contains js to connect with the mongoose database.
+
 const { connect, connection } = require('mongoose');
 
 

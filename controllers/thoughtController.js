@@ -1,0 +1,1 @@
+//! This file contains controllers to get, create, update, and delete thoughts, as well as create and delete reactions.
