@@ -16,8 +16,8 @@ module.exports = {
 
     // Delete a user
 
-    // add a friend to a user
+    // add a friend to a specific user
 
-    // remove a friend from a user
+    // remove a friend from a specific user
 
 };
