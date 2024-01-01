@@ -48,3 +48,8 @@ const userSchema = new Schema(
         id: false,
     }
 );
+
+// put User model in class const
+const User = model('user', userSchema);
+
+module.exports = User;
