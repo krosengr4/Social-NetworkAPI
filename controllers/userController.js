@@ -30,7 +30,7 @@ module.exports = {
                 .select('-__v');
 
             if (!user) {
-                return res.status(404).json({ message: "No user with that ID"})
+                return res.status(404).json({ message: `No user with that ID. Could not GET.`})
             }
 
             res.json({
@@ -43,13 +43,74 @@ module.exports = {
     },
 
     // Create new user
+    async createNewUser(req, res) {
+        try {
+            const user = await User.create(req.body);
+            res.json(user);
+        } catch(err) {
+            console.log(err);
+            res.status(500).json(err);
+        }
+    },
 
     // Update a user
 
     // Delete a user
+    async deleteUser(req, res) {
+        try {
+            const user = await User.findOneAndDelete({ _id: req.params.userId});
 
-    // add a friend to a specific user
+            if (!user) {
+                return res.status(404).json({ message: `No user with that id found. Could not delete.` });
+            }
+
+            // Delete that user's thoughts. Find user using "$in:" operator
+            await Thought.deleteMany({ _id: {$in: user.thoughts }});
+            /* 
+            const thought = await Thought.findOnAndUpdate(
+                { _id: req.params.userId},
+                { $pull: req.body },
+                // { new: true }
+            )
+            */
+            res.status(200).json({ message: `Deleted user and their thoughts.` })
+        } catch(err) {
+            res.status(500).json({ message: `No thought found with that user id. Could not delete.`})
+        }
+    },
+
+    // add a friend for a specific user
+    async addFriend(req, res) {
+        try {
+            const user = await User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $addToSet: { friends: req.params.friendsId }}, //<--- use "$addToSet:" to add to friends array
+                { new: true }
+            );
+
+            if (!user) {
+                return res.status(404).json({ message: `No ID found for this ID. Could not add friend.`});
+            }
+
+            res.json(user);
+        } catch(err) {
+            res.status(500).json({ message: `No user found with that ID`});
+        }
+    },
 
     // remove a friend from a specific user
-
+    async removeFriend(req, res) {
+        try {
+            const user = await User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $pull: { friends: req.params.friendsId }}, //<--- use "$pull:" to remove out of friends array
+                { new: true }
+            );
+            if (!user) {
+                return res.status(404).json({ message: `No ID found for this ID. Could not remove friend.`});
+            }
+        } catch(err) {
+            res.status(500).json({ message: `No user found with that ID`});
+        }
+    }
 };
