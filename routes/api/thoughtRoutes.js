@@ -17,19 +17,19 @@ const{
 // create route for the url: /api/thoughts
 router.route('/')
     .get(getThoughts)
-    .post(createThought)
-    .post(createReaction);
-    
+    .post(createThought);
 
 // create route for the url: /api/:thoughtId
 router.route('/:thoughtId')
     .get(getSingleThought)
     .put(updateThought)
-    .delete(deleteThought)
-    .delete(deleteReaction);
+    .delete(deleteThought);
 
 // create route for the url: /api/:thoughtId
 router.route ('thoughtId/reactions').post(createReaction);
 
 // create route for the url: /api/:thoughtId/reactions
-router.route(':thoughtId/reactions/:reactionId').delete(deleteReaction);    
+router.route(':thoughtId/reactions/:reactionId').delete(deleteReaction);   
+
+// export all routes through router
+module.exports = router;
