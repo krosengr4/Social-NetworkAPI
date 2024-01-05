@@ -1,7 +1,7 @@
 //! This file contains the routers for Users
 
 // import express for router middlewear
-const router = require('express').router();
+const router = require('express').Router();
 
 // import all user controllers 
 const{

@@ -1,7 +1,7 @@
 //! This file contains the routers for Thoughts
 
 // import express for router middlewear
-const router = require('express').router();
+const router = require('express').Router();
 
 // import all thought controllers 
 const{
