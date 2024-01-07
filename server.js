@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3003;
 // start server. .once() listens to open event once (= suc. mongoDB connection)
 mongoDB.once('open', () => {
     app.listen(PORT, () => {
-        console.log(`API server is running at: http://localhost:${PORT}`);
+        console.log(`API server is running at: http://localhost:${PORT}/api/thoughts`);
     });
 });
 
