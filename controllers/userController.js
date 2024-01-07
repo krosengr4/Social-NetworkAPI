@@ -13,7 +13,7 @@ module.exports = {
 
             const userObj = {
                 users,
-                headCount: await headCount(),
+                // headCount: await headCount(),
             };
 
             res.json(userObj);
