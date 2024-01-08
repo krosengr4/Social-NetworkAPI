@@ -1,18 +1,57 @@
-# Social-NetworkAPI
-An API for a social media startup that uses mongoDB
+# Social Network API  
+ 
+![License Badge](https://img.shields.io/badge/License-MIT-blue.svg)
 
-# User Story
-AS A social media startup
-I WANT an API for my social network that uses a NoSQL database
-SO THAT my website can handle large amounts of unstructured data
+## Table of Contents: 
+[Description](#description) 
 
-# Acceptance Criteria
-GIVEN a social network API
-WHEN I enter the command to invoke the application
-THEN my server is started and the Mongoose models are synced to the MongoDB database
-WHEN I open API GET routes in Insomnia for users and thoughts
-THEN the data for each of these routes is displayed in a formatted JSON
-WHEN I test API POST, PUT, and DELETE routes in Insomnia
-THEN I am able to successfully create, update, and delete users and thoughts in my database
-WHEN I test API POST and DELETE routes in Insomnia
-THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
+[Installation](#installation) 
+
+[Usage](#usage) 
+
+[Video](#video)
+
+[Contributing](#contributing) 
+
+[Tests](#tests) 
+
+[License](#license) 
+
+[Questions](#questions) 
+
+
+## Description
+Backend code for a social networking site,  that uses Node, Moment, Mongoose DB, and express middlewear. In this repository, there is code to get, create, delete, and update users, and thoughts. 
+
+## Installation
+- Node js
+- Mongoose db
+- Insomnia
+
+
+## Usage
+- Clone the repository code 
+- Run npm install in the /develope directory command line
+- Start server by using "node server.js" in command line
+- Open insomnia and use get/post/delete/put routes as needed
+
+## Images
+![image](picture)
+
+## Video
+
+## Contributing
+
+### Please contribute to this project:
+- [Submit Bugs and Request Features you'd like to see Implemented](https://github.com/krosengr4/Social-NetworkAPI/issues)
+
+## Tests
+No tests are provided.
+
+## License
+For more information about the license, please follow this link: https://opensource.org/license/mit/
+
+## Questions
+Here is the link to my Github Profile: https://github.com/krosengr4 
+
+For any additional questions, email me at rosenkev4@gmail.com
