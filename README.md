@@ -35,9 +35,6 @@ Backend code for a social networking site,  that uses Node, Moment, Mongoose DB,
 - Start server by using "node server.js" in command line
 - Open insomnia and use get/post/delete/put routes as needed
 
-## Images
-![image](picture)
-
 ## Video
 
 ## Contributing

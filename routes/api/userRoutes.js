@@ -8,6 +8,7 @@ const{
     getUsers,
     getSingleUser,
     createNewUser,
+    updateUser,
     deleteUser,
     addFriend,
     removeFriend
@@ -21,7 +22,7 @@ router.route('/')
 // create route for the url: /api/:userId
 router.route('/:userId')
 .get(getSingleUser)
-// .put(updateUser)
+.put(updateUser)
 .delete(deleteUser);
 
 // create route for the url: /api/:userId/friends/friendId

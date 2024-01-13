@@ -54,6 +54,22 @@ module.exports = {
     },
 
     // Update a user
+    async updateUser(req, res) {
+        try {
+            const user = await User.findOneAndUpdate(
+                {_id: req.params.userId}, //<--- Get user by their id
+                {$set: req.body}, //<--- Update the user with req.body
+                {new: true}, //<--- return new User object w new data
+            );
+
+            if(!user) {
+                return res.status(400).json({ message: `No User found with this ID`})
+            };
+            res.json(user);
+        } catch(err) {
+            res.status(500).json(err);
+        }
+    },
 
     // Delete a user
     async deleteUser(req, res) {

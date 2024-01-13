@@ -64,7 +64,7 @@ module.exports = {
     async updateThought(req, res) {
         try {
             const thought = await Thought.findOneAndUpdate(
-                {_id: req.params.thoughtId},
+                {_id: req.params.thoughtId}, //<--- find a thought by it's ID
                 { $set: req.body }, //<--- use "$set" to pass in new thought
                 { new: true},
             );
